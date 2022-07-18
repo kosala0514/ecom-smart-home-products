@@ -1,0 +1,75 @@
+.formInput{
+    display: flex;
+    flex-direction: column;
+    /* width: 300px; */
+}
+
+input{
+    width: 30vw;
+    padding: 10px;
+    margin: 15px 0 0 3vw;
+    opacity: 0.6;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #7C3E66;
+    opacity: 1; /* Firefox */
+}
+form h5{
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    color: #fff;
+    cursor: pointer !important;
+}
+form .forgot_pass{
+    text-align: right;
+}
+form .account_phase{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    color: #fff;
+}
+.sign__in__head{
+    margin-bottom: 50px;
+}
+.sign__up__head{
+    margin-top: -50px;
+    margin-bottom: 10px;
+}
+.error__msg{
+    color: red;
+    font-size: 16px;
+}
+form{
+    /* background-color: aquamarine;
+    padding: 0px 60px;
+    border-radius: 10px; */
+    margin-top: 10vh;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-size: 12px;
+    color: gray;
+}
+
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
