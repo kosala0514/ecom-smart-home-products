@@ -3,10 +3,8 @@ import { Container, Content, Grid } from '../components/Card/card';
 import Modal from '../components/Modal/modal';
 
 import ProductsService from '../config/products';
-import './css/style.css';
 
 const Products = () => {
-    const customID = localStorage.getItem("custom-id");
 
     const [openContent, setOpenContent] = useState(false);
 
@@ -30,9 +28,6 @@ const Products = () => {
     }
   return (
     <Grid>
-        {/* <h1>Products - {customID}</h1> */}
-        {/* <pre>{JSON.stringify(product, undefined, 2)}</pre> */}
-       
             {product.map((doc, index) => {
                 return (
                     <div  key={index+1} >

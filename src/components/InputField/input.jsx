@@ -5,7 +5,6 @@ const InputFields = (props) => {
     const { label, onChange, id, ...inputProps} = props;
   return (
     <ProInput>
-        {/* <label>{label}</label> */}
         <input {...inputProps} onChange={onChange} />
     </ProInput>
   )

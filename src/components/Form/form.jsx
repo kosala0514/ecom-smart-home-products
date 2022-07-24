@@ -157,12 +157,15 @@ const Form = () => {
               alert("Login successfull!")
               setValuesSignUp("");
               navigateToProducts();
+              return;
             }
             else{
               alert("Wrong Password!");
+              return;
             }
           }else{
             alert("User Not Exists!");
+            return;
           }
         });
       });
@@ -191,7 +194,7 @@ const Form = () => {
             : 
             <form onSubmit={registerCustom}>
               <h1  style={{marginTop:"-10px"}}>Welcome to SmartHome!</h1>
-          {inputsSignUp.map((input) => (
+                  {inputsSignUp.map((input) => (
                     <FormInput 
                       key={input.id}
                       {...input} 
@@ -202,8 +205,7 @@ const Form = () => {
                   <p onClick={changeForm}>Have an account ? Login</p>
                   <BtnReg type='submit'>SignUp</BtnReg>
             </form>
-            }
-            
+            }            
           </Wrapper>
       </Background>
     

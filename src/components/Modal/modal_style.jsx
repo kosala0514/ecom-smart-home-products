@@ -93,12 +93,6 @@ export const ProModalContentRow1 = styled.div`
     width: 100%;
     height: 100%;
 `;
-// export const ProModalContentRow2 = styled.div`
-//     display: flex;
-//     position: relative;
-//     width: 100%;
-//     height: 50%;
-// `;
 export const ProImgContainer = styled.div`
   width: 50%;
   height: 100%;

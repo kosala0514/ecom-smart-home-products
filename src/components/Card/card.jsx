@@ -31,8 +31,6 @@ export const Content = styled.div`
     bottom: 0px;
     background-color: rgb(165, 190, 204,0.5);
     opacity: 1;
-    /* transform: translateY(-20px);
-    transition: 0.5s all; */
 
 
     h1{

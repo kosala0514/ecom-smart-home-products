@@ -1,13 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useNavigate } from 'react-router-dom';
-// import { storage } from "../../config/firebase";
-// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { v4 } from 'uuid';
-// import FormControl from '@mui/material/FormControl';
-// import Input from '@mui/material/Input';
-// import InputLabel from '@mui/material/InputLabel';
-// import TextField from '@mui/material/TextField';
 
 import CustomerService from "../../config/auth";
 import {
@@ -32,23 +25,7 @@ const ProfileModal = ({ showModal, setShowModal}) => {
   const [phone, setPhone] = useState('');
   let ID  = window.localStorage.getItem("custom-id");
   const [customerData, setCustomerData] = useState([]);
-
-  // const [profile, setProfile] = (Profile)
-  // const [image, setImage] = useState(null)
-
-  useEffect(() => {
-    ID = window.localStorage.getItem("custom-id")
-    CustomerService.getCustomer(ID).then((snapshot) => {
-      setCustomerData(snapshot.data());
-      setName(customerData.username);
-      setAddress(customerData.phone);
-      setPhone(customerData.address);
-    });
-  },[]);
-
   
-  
-
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -63,6 +40,19 @@ const ProfileModal = ({ showModal, setShowModal}) => {
       setShowModal(false);
     }
   };
+
+  useEffect(() => {
+    getData()
+  },[]);
+
+  const getData = async() => {
+    const id = window.localStorage.getItem("custom-id")
+    const snapshot = await CustomerService.getCustomer(id)
+      setCustomerData(snapshot.data());
+      setName(customerData.username);
+      setAddress(customerData.phone);
+      setPhone(customerData.address);
+  }
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -126,20 +116,6 @@ const ProfileModal = ({ showModal, setShowModal}) => {
     navigate('/');
   }
 
-  // const uploadImage = async (event) => {
-  //   if(event.target.files[0]){
-  //     await setImage(event.target.files[0])
-  //     console.log("image " +event.target.files[0].name)
-  //       const imgRef = ref(storage, `images/${event.target.files[0].name + v4()}`)
-  //         uploadBytes(imgRef, image).then(() => {
-  //           alert("Image uploaded!.")
-  //       }).then(()=>{
-          
-  //       })
-  //   }
-    
-  // }
-
   return (
     <>
       {showModal ? (
@@ -171,11 +147,6 @@ const ProfileModal = ({ showModal, setShowModal}) => {
                     <ProButton onClick={deleteAccount}>Delete</ProButton>
                     </ProBtnContainer>
                 </ProModalContentRow1>
-
-                {/* <h1>Name : {customerData.username}</h1>
-                    <h3>Email : {customerData.email}</h3>
-                    <h3>Phone Number  {customerData.phone}</h3>
-                    <h3>Address : {customerData.address}</h3> */}
               </ProModalContent>
               <CloseModalButton
                 aria-label="Close modal"
