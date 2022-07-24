@@ -108,8 +108,33 @@ export const ProImgContainer = styled.div`
   img{
     width: 100%;
     height: 100%;
-  border-top-left-radius: 25px;
+    border-top-left-radius: 25px;
   }
+  input{
+    position: absolute;
+    border: none;
+    width: 15px;
+    ::-webkit-file-upload-button{
+      visibility: hidden;
+    }
+
+    ::before{
+      content: '+';
+      display: inline-block;
+      background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+      border: 1px solid #7C3E66;
+      border-radius: 15px;
+      color: #7C3E66;
+      padding: 4px 8px;
+      outline: none;
+      white-space: nowrap;
+      cursor: pointer;
+      text-shadow: 1px 1px #fff;
+      font-weight: 700;
+      font-size: 10pt;
+    }
+  }
+  
 `;
 export const ProEditContainer = styled.div`
   width: 50%;

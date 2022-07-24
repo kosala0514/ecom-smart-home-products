@@ -19,7 +19,7 @@ const Navbar = () => {
   const [name, setName] = useState("")
   const [user_id, setId] = useState("")
   const [edit, setEDit] = useState(false)
-  const [searchItem, setSearchItem] = useState("")
+  const [searchItem, setSearchItem] = useState(false)
 
   const openProfile = () => {
     setShowModal ( prev => !prev);
@@ -64,6 +64,7 @@ const Navbar = () => {
 
   const switchToSearch = () => {
     setEDit(prev => !prev)
+    setSearchItem(prev => !prev)
   }
 
   return (
@@ -73,13 +74,13 @@ const Navbar = () => {
             <h1 style={{color:"#7C3E66"}}>SmartHome</h1>
           {/* <img src={require('../../images/logo.svg')} alt='logo' /> */}
         </NavLink>
-        {
+        {/* {
           edit ?
           <div>
             <input id="myInput" placeholder="Serach..." onChange={searchProducts}/>
             <CloseSearchButton onClick={switchToSearch} />
-            <SearchModal show/>
-            {/* <ul id="myProduct">
+            <SearchModal showModal={searchItem} setShowModal={setSearchItem} Doc={product}/>
+            <ul id="myProduct">
             {product.map((doc, index) => {
                 return (
                     <li  key={index+1} >
@@ -87,10 +88,10 @@ const Navbar = () => {
                     </li>
                 );
             })}
-            </ul> */}
+            </ul>
           </div>
           :<SearchBtn onClick={switchToSearch} />
-        }
+        } */}
         
         {user_id === null ? null : 
           <NavBtn onClick={openProfile}><h1>{name.split('')[0]}</h1></NavBtn>

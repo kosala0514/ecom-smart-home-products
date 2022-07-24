@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useNavigate } from 'react-router-dom';
+// import { storage } from "../../config/firebase";
+// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// import { v4 } from 'uuid';
 // import FormControl from '@mui/material/FormControl';
 // import Input from '@mui/material/Input';
 // import InputLabel from '@mui/material/InputLabel';
@@ -21,7 +24,6 @@ import {
   ProButton,
 } from "./modal_style";
 import Profile from "../../assets/img/profile.jpg";
-import InputFields from "../InputField/input";
 
 const ProfileModal = ({ showModal, setShowModal}) => {
   const navigate = useNavigate();
@@ -31,6 +33,9 @@ const ProfileModal = ({ showModal, setShowModal}) => {
   let ID  = window.localStorage.getItem("custom-id");
   const [customerData, setCustomerData] = useState([]);
 
+  // const [profile, setProfile] = (Profile)
+  // const [image, setImage] = useState(null)
+
   useEffect(() => {
     ID = window.localStorage.getItem("custom-id")
     CustomerService.getCustomer(ID).then((snapshot) => {
@@ -39,7 +44,7 @@ const ProfileModal = ({ showModal, setShowModal}) => {
       setAddress(customerData.phone);
       setPhone(customerData.address);
     });
-  }, []);
+  },[]);
 
   
   
@@ -121,6 +126,19 @@ const ProfileModal = ({ showModal, setShowModal}) => {
     navigate('/');
   }
 
+  // const uploadImage = async (event) => {
+  //   if(event.target.files[0]){
+  //     await setImage(event.target.files[0])
+  //     console.log("image " +event.target.files[0].name)
+  //       const imgRef = ref(storage, `images/${event.target.files[0].name + v4()}`)
+  //         uploadBytes(imgRef, image).then(() => {
+  //           alert("Image uploaded!.")
+  //       }).then(()=>{
+          
+  //       })
+  //   }
+    
+  // }
 
   return (
     <>
@@ -130,7 +148,8 @@ const ProfileModal = ({ showModal, setShowModal}) => {
             <ModalWrapper showModal={showModal}>
               <ProModalContent>
                 <ProModalContentRow1>
-                  <ProImgContainer>                    
+                  <ProImgContainer>
+                    {/* <input type="file" onChange={uploadImage}/>                     */}
                     <img src={Profile} alt="" />
                   </ProImgContainer>
                   <ProEditContainer>

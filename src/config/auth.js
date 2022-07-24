@@ -24,6 +24,11 @@ class CustomerService {
         console.log("User " + getDoc(customDoc));
         return await getDoc(customDoc);
     }
+    updateProfile = async(id, file) => {
+        await customersRef.doc(id).update({
+            profile: file,
+        })
+    }
 }
 
 export default new CustomerService();

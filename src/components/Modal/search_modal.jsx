@@ -27,16 +27,15 @@ const SearchModal = ({ showModal, setShowModal, Doc }) => {
               <ModalWrapper showModal={showModal}>
                 {/* <ModalImg src={require('./modal.jpg')} alt='camera' /> */}
                 <ModalContent>
-                    <ImgContainer>
-                        <img  src={Doc.image} alt="" />
-                    </ImgContainer> 
-                    <DesContainer>
-                        <h1>{Doc.Item_name}</h1>
-                        <p>{Doc.description} </p>
-                        <h3>Price : {Doc.price}</h3>
-                        <h3>Size : {Doc.size}</h3>
-                        <h3>Rate : {Doc.rate === "5" ? "💜💜💜💜💜"  : Doc.rate === "4" ? "💜💜💜💜" : Doc.rate === "3" ? "💜💜💜" : ""}</h3>
-                    </DesContainer>
+                <ul id="myProduct">
+                {product.map((doc, index) => {
+                    return (
+                        <li  key={index+1} >
+                            <a>{doc.Item_name}</a>
+                        </li>
+                    );
+                })}
+                </ul> 
                 </ModalContent>
                 <CloseModalButton
                   aria-label='Close modal'
